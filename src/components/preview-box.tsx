@@ -7,6 +7,7 @@ interface PreviewBoxProps {
   description: string;
   btnText: string;
   btnAction: () => void;
+  isImgFirst: boolean;
 }
 
 export default function PreviewBox({
@@ -15,10 +16,11 @@ export default function PreviewBox({
   description,
   btnText,
   btnAction,
+  isImgFirst,
 }: PreviewBoxProps) {
   return (
     <div className="flex flex-col lg:flex-row items-center">
-      <div className="relative w-[40rem] h-[40rem]">
+      <div className={`${isImgFirst ? "order-1" : "order-2"} relative w-screen md:w-[40rem] h-[30rem] md:h-[40rem]`}>
         <Image
           fill
           loading="lazy"
@@ -28,8 +30,8 @@ export default function PreviewBox({
         />
       </div>
 
-      <div className="flex-1 flex flex-col gap-7">
-        <h2 className="text-5xl font-semibold leading-tight">{title}</h2>
+      <div className={`${isImgFirst ? "order-2" : "order-1"} max-w-2xl lg:flex-1 flex flex-col gap-5`}>
+        <h2 className="text-5xl font-semibold leading-snug">{title}</h2>
         <p className="text-gray-400 leading-relaxed">{description}</p>
         <button
           onClick={btnAction}

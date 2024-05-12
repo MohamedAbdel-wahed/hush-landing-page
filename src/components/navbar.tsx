@@ -26,14 +26,14 @@ export default function Navbar() {
         <NavItem title="patch release" />
       </ul>
 
-      {isMobileNavVisible && (
+       {isMobileNavVisible && (
         <button
           className="w-full h-full fixed inset-0 bg-black/50 z-20"
           onClick={() => setMobileNavVisible(false)}
         ></button>
-      )}
+      )} 
 
-      <MobileNav isVisible={isMobileNavVisible} />
+      {isMobileNavVisible && <MobileNav isVisible={isMobileNavVisible} />}
 
       <button
         title="create account"

@@ -81,22 +81,26 @@ export default function Home() {
       </Wrapper>
 
       <Wrapper className="mt-20 py-10 bg-dark text-white/90">
-        <PreviewBox
-          img="app-preview-2"
-          title="Easy and effortless way to connect with your team"
-          description="With hush you can easliy connect with your team in a different fields, you can create, manage, and edit what ever you want inside the channel. Create as many as you want"
-          btnText="learn more about hush"
-          btnAction={() => {}}
-        />
+        <div className="flex flex-col gap-20">
+          <PreviewBox
+            img="app-preview-2"
+            title="Easy and effortless way to connect with your team"
+            description="With hush you can easliy connect with your team in a different fields, you can create, manage, and edit what ever you want inside the channel. Create as many as you want"
+            btnText="learn more about hush"
+            btnAction={() => {}}
+            isImgFirst={true}
+          />
 
-        <PreviewBox
-          img="app-preview-3"
-          title="Tons of supportive community you can discover"
-          description="Search any type and field of community you want, by searching on the search page you can discover tons of supportive community that will help you with your work."
-          btnText="explore the communities"
-          btnAction={() => {}}
-        />
-       
+          <PreviewBox
+            img="app-preview-3"
+            title="Tons of supportive community you can discover"
+            description="Search any type and field of community you want, by searching on the search page you can discover tons of supportive community that will help you with your work."
+            btnText="explore the communities"
+            btnAction={() => {}}
+            isImgFirst={false}
+          />
+        </div>
+
         <div className="w-full px-10 py-12 text-center flex flex-col items-center -mt-[16rem] sm:-mt-64 lg:-mt-64 translate-y-80 bg-blue-500 text-white/90 rounded-lg">
           <div className="max-w-3xl flex flex-col items-center gap-6">
             <h2 className="text-5xl md:text-6xl font-semibold leading-tight">
