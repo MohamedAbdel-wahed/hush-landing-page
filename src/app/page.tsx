@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useScroll } from "framer-motion";
 import FeatureBox from "@/components/feature-box";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -8,8 +9,11 @@ import Image from "next/image";
 import PreviewBox from "@/components/preview-box";
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <>
+      {/* <motion.div className="w-full h-1 bg-red-500 fixed top-0 rounded z-40 " style={{ scaleX: scrollYProgress }} /> */}
       <Wrapper className="mb-[17rem] sm:mb-[21rem] lg:mb-[30rem] relative bg-dark text-white/90">
         <Navbar />
         <div className="flex flex-col items-center gap-10">
@@ -22,7 +26,12 @@ export default function Home() {
               connect with everyone in a easy and comfortable way posssible
             </p>
 
-            <button className="relative mt-2 px-4 py-3 flex items-center gap-2 bg-blue-600 hover:bg-blue-600/80 rounded-full duration-150 shadow-2xl drop-shadow-2xl shadow-blue-500/50">
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="relative mt-2 px-4 py-3 flex items-center gap-2 bg-blue-600 hover:bg-blue-600/80 rounded-full duration-150 shadow-2xl drop-shadow-2xl shadow-blue-500/50"
+            >
               <Image
                 src="/assets/splash.png"
                 alt="splash-icon"
@@ -37,9 +46,14 @@ export default function Home() {
                 height={30}
               />
               <span className="capitalize">download for MacOS</span>
-            </button>
+            </motion.button>
           </div>
-          <div className="relative w-full h-[52rem] -mt-[35rem] sm:-mt-[27rem] md:-mt-96 lg:-mt-64 translate-y-96 sm:translate-y-80">
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: "42%" }}
+            transition={{ duration: 0.5 }}
+            className="relative w-full h-[52rem] -mt-[35rem] sm:-mt-[27rem] md:-mt-96 lg:-mt-64 translate-y-96 sm:translate-y-80"
+          >
             <Image
               fill
               loading="lazy"
@@ -47,7 +61,7 @@ export default function Home() {
               alt="app-preview-1"
               className="w-full object-contain"
             />
-          </div>
+          </motion.div>
         </div>
       </Wrapper>
 

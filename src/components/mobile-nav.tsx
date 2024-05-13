@@ -1,5 +1,6 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import NavItem from "@/components/nav-item";
 
 interface MobileNavProps {
@@ -8,7 +9,10 @@ interface MobileNavProps {
 
 export default function MobileNav({ isVisible }: MobileNavProps) {
   return (
-    <div
+    <motion.div
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.4 }}
       className={`${
         isVisible ? "block" : "hidden"
       } w-[70%] h-screen py-20 fixed top-0 right-0 bg-[#16181e] z-30`}
@@ -36,6 +40,6 @@ export default function MobileNav({ isVisible }: MobileNavProps) {
           </button>
         </li>
       </ul>
-    </div>
+    </motion.div>
   );
 }
